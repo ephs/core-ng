@@ -1,0 +1,59 @@
+nav {
+  position: relative;
+  z-index: 3;
+  background-color: #0E0E10;
+  height: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
+  /* Shadow for wave effect on nav */
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+  ul {
+    /* List on nav */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li { /* Each item on the nav */
+
+      .head-img{ /* The title lighting bolt on the nav */
+        margin-bottom: 3vh;
+        /* background-color: rgba(35, 37, 37, 0.83); */
+      }
+
+      a { /* Link style. The thing you actuall click on */
+
+        color: #fff;
+         /* padding: 30px 10px 10px; */
+        padding: 20px;
+        display: block;
+        text-align: center;
+
+        /* Text stays on same line on iPads for some reason. */
+        span{
+          width: 100%;
+
+        }
+        i{
+          width: 100%;
+        }
+
+        text-decoration: none !important;
+        .info{
+          font-size: 1vh;
+        }
+
+        img{ /* The lighting bolt on the nav. */
+          width: 2em;
+          height: auto;
+        }
+
+      }
+
+      .activated {
+        background-color: #8D272A;
+      }
+    }
+  }
+}

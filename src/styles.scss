@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0;
+  background: linear-gradient(120deg, rgba(150, 40, 40, 0.95), rgb(41, 39, 39));
+  font-family: 'Ubuntu', sans-serif;
+  height: 100%;
+  color: #fff;
+}
+
+html{
+  height: 100vh;
+  min-height: 100%;
+}
+
+html, body {
+  overflow: auto;
+}
+
+
+#container {
+  display: -webkit-inline-box; /* Honestly Safari and IE are the worst browsers(flexbox on safari). */
+  display: grid;
+  grid-template-columns: 70px auto;
+  height: 100%;
+
+  #content {
+    padding: 30px 50px;
+  }
+}

@@ -1,0 +1,37 @@
+<nav>
+  <ul>
+    <li>
+      <a class="head-img">
+        <img src="assets/ephs_small.png" alt="">
+      </a>
+      <a *ngIf="login" routerLink="sessions" [class.activated]="currentUrl == '/'">
+        <i class="material-icons">person_outline</i>
+        <span class="info">My sessions</span>
+      </a>
+    </li>
+    <li>
+      <a *ngIf="login" routerLink="signup" [class.activated]="currentUrl == '/signup'">
+        <i class="material-icons">playlist_add</i>
+        <span class="info">Signup</span>
+      </a>
+    </li>
+    <li>
+      <a *ngIf="login" routerLink="past" [class.activated]="currentUrl == '/past'">
+        <i class="material-icons">fast_rewind</i>
+        <span class="info">Past sessions</span>
+      </a>
+    </li>
+    <li>
+      <a *ngIf="login" routerLink="logout">
+        <i class="material-icons">exit_to_app</i>
+        <span class="info">Logout</span>
+      </a>
+    </li>
+    <li>
+      <a *ngIf="!login" routerLink="login" [class.activated]="currentUrl == '/login'">
+        <i class="material-icons">exit_to_app</i>
+        <span class="info">Login</span>
+      </a>
+    </li>
+  </ul>
+</nav>
