@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 import {TokenResponse} from "./token-response";
 import {ConfigService} from "./config.service";
+import {SessionPayload} from "./session-payload";
 
 /*
  * Pretty sure I got some of the code in here from the book 'Learn Angular: 4 Angular Projects'.
@@ -54,10 +55,12 @@ export class AuthenticationService {
     }
   }
 
-  private request(method: 'post'|'get', type: 'login'|'available'|'signedup'|'past'|'signup', user?: TokenPayload): Observable<any> {
+  private request(method: 'post'|'get', type: 'login'|'sessions/available'|'sessions/signedup'|'sessions/past'|'sessions/signup', user?: TokenPayload, session?: SessionPayload): Observable<any> {
     let base;
     if (method === 'post' && type === 'login') { //We use user to login because it contains the payload we need.
       base = this.http.post(this.config.getAPIURL() + type, user);
+    } else if(method === 'post' && type === 'sessions/signup'){
+      base = this.http.post(this.config.getAPIURL() + type, session, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     } else {
       base = this.http.get(this.config.getAPIURL() + type, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
@@ -86,5 +89,18 @@ export class AuthenticationService {
     window.localStorage.removeItem('session-token');
     this.router.navigateByUrl('/');
   }
+
+  public getSignedup(): Observable<any> {
+    return this.request('get', 'sessions/signedup');
+  }
+
+  public getAvailable(): Observable<any> {
+    return this.request('get', 'sessions/available');
+  }
+
+  public getPast(): Observable<any> {
+    return this.request('get', 'sessions/past');
+  }
+
 
 }

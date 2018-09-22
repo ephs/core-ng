@@ -16,6 +16,18 @@ html, body {
   overflow: auto;
 }
 
+#header{
+  p{
+    font-size: 10vh;
+    margin-bottom: 1vh;
+  }
+  @media only screen and (max-device-width: 1023px) {
+    p{
+      margin-top: 0;
+      font-size: 8vh;
+    }
+  }
+}
 
 #container {
   display: -webkit-inline-box; /* Honestly Safari and IE are the worst browsers(flexbox on safari). */
@@ -25,5 +37,58 @@ html, body {
 
   #content {
     padding: 30px 50px;
+    #sessions{
+      margin-top: 10vh;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        #nsf{
+          text-align: center;
+        }
+
+        opacity: .7;
+        background: #060607;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 8px;
+
+        .options{
+          float: right;
+        }
+
+        a {
+          font-size: 1.5em;
+          text-decoration: none;
+          font-weight: bold;
+          color: #FFFFFF;
+        }
+
+        ul {
+          margin-top: 20px;
+
+          li {
+            padding: 0;
+
+
+            a {
+              font-size: 1em;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+    }
+
   }
+  @media only screen and (max-device-width: 1023px) {
+    #content{
+      padding: 30px 20px;
+    }
+  }
+
 }

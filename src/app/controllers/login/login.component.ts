@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {TokenPayload} from "../core/token-payload";
-import {AuthenticationService} from "../core/authentication.service";
+import {TokenPayload} from "../../core/token-payload";
+import {AuthenticationService} from "../../core/authentication.service";
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
 
