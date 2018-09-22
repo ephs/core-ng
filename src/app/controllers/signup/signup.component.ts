@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title) {}
 
   ngOnInit() {
+    this.titleService.setTitle( "Core | Signup for Session" );
   }
 
 }

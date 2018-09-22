@@ -6,6 +6,12 @@ import {TokenPayload} from "./token-payload";
 import {Observable} from "rxjs";
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 import {TokenResponse} from "./token-response";
+import {ConfigService} from "./config.service";
+
+/*
+ * Pretty sure I got some of the code in here from the book 'Learn Angular: 4 Angular Projects'.
+ * Why remake the wheel?
+ */
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +19,7 @@ import {TokenResponse} from "./token-response";
 export class AuthenticationService {
   private token: string;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private config: ConfigService) { }
 
   private saveToken(token: string): void {
     localStorage.setItem('session-token', token);
@@ -51,9 +57,9 @@ export class AuthenticationService {
   private request(method: 'post'|'get', type: 'login'|'available'|'signedup'|'past'|'signup', user?: TokenPayload): Observable<any> {
     let base;
     if (method === 'post' && type === 'login') { //We use user to login because it contains the payload we need.
-      base = this.http.post(`http://localhost:8080/api/v1/${type}`, user);
+      base = this.http.post(this.config.getAPIURL() + type, user);
     } else {
-      base = this.http.get(`http://localhost:8080/api/v1/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base = this.http.get(this.config.getAPIURL() + type, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
 
 
