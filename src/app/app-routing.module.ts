@@ -10,6 +10,10 @@ import {PastComponent} from "./controllers/past/past.component";
 import {NotFoundComponent} from "./controllers/not-found/not-found.component";
 import {DisclaimerComponent} from "./controllers/disclaimer/disclaimer.component";
 
+/*
+ * APP ROUTES. This is where Angular keeps its routes. You can see all the route titles and activated middleware.
+ */
+
 const routes: Routes = [
   {
     path: '',

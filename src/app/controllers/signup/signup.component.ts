@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import {AuthenticationService} from "../../core/services/authentication.service";
 import {animate, query, stagger, style, transition, trigger} from "@angular/animations";
+import {AvailableSessions} from "../../core/models/available-sessions";
 
 @Component({
   selector: 'app-signup',
@@ -28,7 +29,7 @@ export class SignupComponent implements OnInit {
 
   constructor(private auth: AuthenticationService) {}
 
-  sessions$: Object;
+  sessions$: AvailableSessions;
   len: number;
 
   ngOnInit() {

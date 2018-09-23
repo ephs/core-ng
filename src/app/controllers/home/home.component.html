@@ -1,17 +1,18 @@
 <div id="header">
-  <p>Your sessions</p>
+  <p>Your Sessions</p>
 </div>
 <div id="sessions">
   <ul [@listStagger]="sessions$">
-    <li *ngIf="(sessions$ | async)?.length==0">
-      <p id="nsf">No sessions found.</p>
+    <li *ngIf="len == 0">
+      <p id="nsf">No sessions found. Sign up for one!</p>
     </li>
     <li *ngFor="let session of sessions$">
       <span class="options"><i class="material-icons">cancel</i></span>
-      <a routerLink="">Science Test Retake</a>
-      <p><b>Teacher: </b> Jim Bob</p>
-      <p><b>Category: </b> SCIENCE</p>
-      <p><b>Date: </b> 2018-03-22</p>
+      <a routerLink="">{{session.name}}</a>
+      <p><b>Teacher: </b> {{session.firstName}} {{session.lastName}}</p>
+      <p><b>Category: </b> {{session.category}}</p>
+      <p><b>Date: </b> {{session.date}} </p>
+      <p><b>Open Seats: </b> {{session.openSeats}}</p>
     </li>
   </ul>
 </div>

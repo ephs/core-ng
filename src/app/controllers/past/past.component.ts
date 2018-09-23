@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import {AuthenticationService} from "../../core/services/authentication.service";
 import {animate, query, stagger, style, transition, trigger} from "@angular/animations";
+import {PastSessions} from "../../core/models/past-sessions";
 
 @Component({
   selector: 'app-past',
@@ -26,7 +27,7 @@ import {animate, query, stagger, style, transition, trigger} from "@angular/anim
 })
 export class PastComponent implements OnInit {
 
-  sessions$: Object;
+  sessions$: PastSessions;
   len: number;
 
   constructor(private auth: AuthenticationService) { }

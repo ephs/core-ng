@@ -3,6 +3,7 @@ import {Title} from "@angular/platform-browser";
 
 import {animate, query, stagger, style, transition, trigger} from "@angular/animations";
 import {AuthenticationService} from "../../core/services/authentication.service";
+import {AvailableSessions} from "../../core/models/available-sessions";
 
 @Component({
   selector: 'app-home',
@@ -27,12 +28,13 @@ import {AuthenticationService} from "../../core/services/authentication.service"
 })
 export class HomeComponent implements OnInit {
 
-  sessions$: Object;
+  sessions$: AvailableSessions;
+  len: boolean;
 
   constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
-    this.auth.getSignedup().subscribe(data => this.sessions$ = data);
+    this.auth.getSignedup().subscribe(data => {this.sessions$ = data.sessions; this.len = data.sessions.length;});
   }
 
 }

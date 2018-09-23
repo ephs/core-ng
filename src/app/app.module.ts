@@ -1,10 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './controllers/login/login.component';
-import { AvailableComponent } from './controllers/available/available.component';
 import { PastComponent } from './controllers/past/past.component';
 import { SignupComponent } from './controllers/signup/signup.component';
 import { SidebarComponent } from './controllers/sidebar/sidebar.component';
@@ -25,7 +24,6 @@ export function init_app(onLoad: OnLoadService) {
   declarations: [
     AppComponent,
     LoginComponent,
-    AvailableComponent,
     PastComponent,
     SignupComponent,
     SidebarComponent,
