@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class ConfigService {
 
   apiEndpoint: string = 'http://localhost:8080/api/v1/';
-  ver: string = 'dev-0.2';
+  ver: string = 'rel-1.0';
 
   getAPIURL(){
     return this.apiEndpoint;

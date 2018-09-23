@@ -3,6 +3,8 @@ import {Title} from "@angular/platform-browser";
 import {AuthenticationService} from "../../core/services/authentication.service";
 import {animate, query, stagger, style, transition, trigger} from "@angular/animations";
 import {AvailableSessions} from "../../core/models/available-sessions";
+import {SessionPayload} from "../../core/models/session-payload";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -27,13 +29,18 @@ import {AvailableSessions} from "../../core/models/available-sessions";
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private auth: AuthenticationService) {}
+  constructor(private auth: AuthenticationService , private router: Router) {}
 
   sessions$: AvailableSessions;
   len: number;
 
   ngOnInit() {
     this.auth.getAvailable().subscribe(data => {this.sessions$ = data.sessions; this.len = data.sessions.length;});
+  }
+
+  signup(session: SessionPayload){
+      console.log(session);
+      this.auth.signup(session).subscribe(data => {this.router.navigateByUrl('/');});
   }
 
 }

@@ -5,4 +5,8 @@ export interface AvailableSessions { //This model is misleading. This is typical
   openSeats: string;
   firstName: string;
   lastName: string;
+  weekStart: string;
+  weekEnd: string;
+  startTime: string;
+  endTime: string;
 }

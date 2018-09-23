@@ -7,7 +7,7 @@
       <p id="nsf">No sessions found. Check back later!</p>
     </li>
     <li *ngFor="let session of sessions$">
-      <span class="options"><i class="material-icons">add</i></span>
+      <span class="options"><a><i (click)="signup(session)" class="material-icons">add</i></a></span>
       <a routerLink="">{{session.name}}</a>
       <p><b>Teacher: </b> {{session.firstName}} {{session.lastName}}</p>
       <p><b>Category: </b> {{session.category}}</p>

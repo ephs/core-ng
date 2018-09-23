@@ -61,13 +61,14 @@ export class AuthenticationService {
     }
   }
 
-  //Holy shiit. We need to provide a request method (POST or GET) and provide a preset route to be called. We also might need to specify some payload if we're logging in or joining/leaving a session.
-  private request(method: 'post' | 'get', type: 'login' | 'sessions/available' | 'sessions/signedup' | 'sessions/past' | 'sessions/signup',
+  //Holy... We need to provide a request method (POST or GET) and provide a preset route to be called. We also might need to specify some payload if we're logging in or joining/leaving a session.
+  private request(method: 'post' | 'get', type: 'login' | 'sessions/available' | 'sessions/signedup' | 'sessions/past' | 'sessions/signup' | 'sessions/leave' ,
                   user?: TokenPayload, session?: SessionPayload): Observable<any> {
     let base;
     if (method === 'post' && type === 'login') { //Check and see if we are logging in. If we are' provide the auth payload
       base = this.http.post(this.config.getAPIURL() + type, user);
-    } else if (method === 'post' && type === 'sessions/signup') { //Check if we're doing something with sessions that requires the payload. //TODO add API call for leaving a session
+    } else if (method === 'post' && (type === 'sessions/signup' || type === 'sessions/leave' )) { //Check if we're doing something with sessions that requires the payload. //TODO add API call for leaving a session
+      console.log("Test");
       base = this.http.post(this.config.getAPIURL() + type, session, {headers: {Authorization: `Bearer ${this.getToken()}`}});
     } else {
       base = this.http.get(this.config.getAPIURL() + type, {headers: {Authorization: `Bearer ${this.getToken()}`}}); //Well, its probably some lame call that only needs auth.
@@ -89,6 +90,14 @@ export class AuthenticationService {
 
   public login(user: TokenPayload): Observable<any> {
     return this.request('post', 'login', user);
+  }
+
+  public signup(session: SessionPayload): Observable<any> {
+    return this.request('post', 'sessions/signup', undefined, session);
+  }
+
+  public leave(session: SessionPayload): Observable<any> {
+    return this.request('post', 'sessions/leave', undefined, session);
   }
 
   public logout(): void {
