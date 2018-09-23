@@ -38,7 +38,14 @@ export class LoginComponent implements OnInit {
         return;
 
     this.loading = true;
+
+    if(this.credentials.username === "" || this.credentials.password === ""){
+      this.subText = "Invalid login.";
+      this.loading = false;
+      return;
+    }
     this.subText = "Starting session...";
+
     this.auth.login(this.credentials).subscribe((data) => {
       if(data.error === "true"){
         if(data.error_code === "no_login" || data.error_code === "invalid_login"){
@@ -54,6 +61,7 @@ export class LoginComponent implements OnInit {
     }, (err) => {
       this.subText = "Unknown error.";
       this.loading = false;
+      console.log(err);
     });
   }
 

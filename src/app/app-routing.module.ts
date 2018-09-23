@@ -7,6 +7,8 @@ import {DeauthGuardService} from "./core/deauth-guard.service";
 import {LogoutComponent} from "./controllers/logout/logout.component";
 import {SignupComponent} from "./controllers/signup/signup.component";
 import {PastComponent} from "./controllers/past/past.component";
+import {NotFoundComponent} from "./controllers/not-found/not-found.component";
+import {DisclaimerComponent} from "./controllers/disclaimer/disclaimer.component";
 
 const routes: Routes = [
   {
@@ -33,7 +35,15 @@ const routes: Routes = [
     path: 'past',
     component: PastComponent,
     canActivate: [AuthGuardService]
-  }
+  },
+  {
+    path: 'disclaimer',
+    component: DisclaimerComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  },
 ];
 
 @NgModule({

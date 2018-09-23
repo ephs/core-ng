@@ -1,3 +1,18 @@
-<p>
-  signup works!
-</p>
+<div id="header">
+  <p>Available sessions</p>
+</div>
+<div id="sessions">
+  <ul [@listStagger]="sessions$">
+    <li *ngIf="len == 0">
+      <p id="nsf">No sessions found. Check back later!</p>
+    </li>
+    <li *ngFor="let session of sessions$">
+      <span class="options"><i class="material-icons">add</i></span>
+      <a routerLink="">{{session.name}}</a>
+      <p><b>Teacher: </b> {{session.firstName}} {{session.lastName}}</p>
+      <p><b>Category: </b> {{session.category}}</p>
+      <p><b>Date: </b> {{session.date}} </p>
+      <p><b>Open Seats: </b> {{session.openSeats}}</p>
+    </li>
+  </ul>
+</div>
