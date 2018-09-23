@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {TokenPayload} from "../../core/token-payload";
-import {AuthenticationService} from "../../core/authentication.service";
+import {TokenPayload} from "../../core/models/token-payload";
+import {AuthenticationService} from "../../core/services/authentication.service";
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
 
@@ -19,10 +19,9 @@ export class LoginComponent implements OnInit {
   loading = false;
   subText = "Start session";
 
-  constructor(private auth: AuthenticationService, private router: Router, private titleService: Title) { }
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
-    this.titleService.setTitle( "Core | Login" );
   }
 
   resetSub(){

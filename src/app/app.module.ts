@@ -15,7 +15,7 @@ import { LogoutComponent } from './controllers/logout/logout.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { NotFoundComponent } from './controllers/not-found/not-found.component';
 import { DisclaimerComponent } from './controllers/disclaimer/disclaimer.component';
-import {OnLoadService} from "./core/on-load.service";
+import {OnLoadService} from "./core/services/on-load.service";
 
 export function init_app(onLoad: OnLoadService) {
   return () => onLoad.init();

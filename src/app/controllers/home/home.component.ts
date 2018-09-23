@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
 
 import {animate, query, stagger, style, transition, trigger} from "@angular/animations";
-import {AuthenticationService} from "../../core/authentication.service";
+import {AuthenticationService} from "../../core/services/authentication.service";
 
 @Component({
   selector: 'app-home',
@@ -29,10 +29,9 @@ export class HomeComponent implements OnInit {
 
   sessions$: Object;
 
-  constructor(private titleService: Title, private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
-    this.titleService.setTitle( "Core | Home" );
     this.auth.getSignedup().subscribe(data => this.sessions$ = data);
   }
 

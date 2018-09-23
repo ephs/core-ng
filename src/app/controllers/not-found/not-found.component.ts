@@ -8,10 +8,9 @@ import {Title} from "@angular/platform-browser";
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor(private titleService: Title) { }
+  constructor() { }
 
   ngOnInit() {
-    this.titleService.setTitle( "Core | Error" );
     console.log("Caught 404")
   }
 

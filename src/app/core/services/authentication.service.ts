@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {UserDetails} from "./user-details";
-import {TokenPayload} from "./token-payload";
+import {UserDetails} from "../models/user-details";
+import {TokenPayload} from "../models/token-payload";
 import {Observable} from "rxjs";
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import {TokenResponse} from "./token-response";
-import {ConfigService} from "./config.service";
-import {SessionPayload} from "./session-payload";
+import {TokenResponse} from "../models/token-response";
+import {ConfigService} from "../config.service";
+import {SessionPayload} from "../models/session-payload";
 
 /*
  * Pretty sure I got some of the code in here from the book 'Learn Angular: 4 Angular Projects'.

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
-import {AuthenticationService} from "../../core/authentication.service";
+import {AuthenticationService} from "../../core/services/authentication.service";
 import {animate, query, stagger, style, transition, trigger} from "@angular/animations";
 
 @Component({
@@ -29,11 +29,9 @@ export class PastComponent implements OnInit {
   sessions$: Object;
   len: number;
 
-  constructor(private titleService: Title, private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
-    this.titleService.setTitle( "Core | Past Sessions" );
-
     this.auth.getPast().subscribe(data => {this.sessions$ = data.sessions; this.len = data.sessions.length;});
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
-import {AuthenticationService} from "../../core/authentication.service";
+import {AuthenticationService} from "../../core/services/authentication.service";
 import {animate, query, stagger, style, transition, trigger} from "@angular/animations";
 
 @Component({
@@ -26,14 +26,12 @@ import {animate, query, stagger, style, transition, trigger} from "@angular/anim
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private titleService: Title, private auth: AuthenticationService) {}
+  constructor(private auth: AuthenticationService) {}
 
   sessions$: Object;
   len: number;
 
   ngOnInit() {
-    this.titleService.setTitle( "Core | Signup for Session" );
-
     this.auth.getAvailable().subscribe(data => {this.sessions$ = data.sessions; this.len = data.sessions.length;});
   }
 
