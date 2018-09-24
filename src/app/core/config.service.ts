@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 
 export class ConfigService {
 
-  apiEndpoint: string = 'http://localhost:8080/api/v1/';
+  apiEndpoint: string = 'https://ephs.club:8443/api/v1/';
   ver: string = 'rel-1.0';
 
   getAPIURL(){
