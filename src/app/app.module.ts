@@ -1,4 +1,4 @@
-import {APP_INITIALIZER, NgModule} from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, NgModule} from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,18 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { NotFoundComponent } from './controllers/not-found/not-found.component';
 import { DisclaimerComponent } from './controllers/disclaimer/disclaimer.component';
 import {OnLoadService} from "./core/services/on-load.service";
+
+import * as Raven from 'raven-js';
+
+Raven
+  .config('https://7880ce881f294331a2449df80a3f94c2@sentry.io/1286744')
+  .install();
+
+export class RavenErrorHandler implements ErrorHandler {
+  handleError(err:any) : void {
+    Raven.captureException(err);
+  }
+}
 
 export function init_app(onLoad: OnLoadService) {
   return () => onLoad.init();
@@ -40,7 +52,8 @@ export function init_app(onLoad: OnLoadService) {
     BrowserAnimationsModule
   ],
   providers: [OnLoadService,
-    { provide: APP_INITIALIZER, useFactory: init_app, deps: [OnLoadService], multi: true }
+    { provide: APP_INITIALIZER, useFactory: init_app, deps: [OnLoadService], multi: true },
+    { provide: ErrorHandler, useClass: RavenErrorHandler}
     ],
   bootstrap: [AppComponent]
 })
