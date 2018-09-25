@@ -17,6 +17,7 @@ import { DisclaimerComponent } from './controllers/disclaimer/disclaimer.compone
 import {OnLoadService} from "./core/services/on-load.service";
 
 import * as Raven from 'raven-js';
+import { FilterPipe } from './core/filter.pipe';
 
 Raven
   .config('https://7880ce881f294331a2449df80a3f94c2@sentry.io/1286744')
@@ -43,6 +44,7 @@ export function init_app(onLoad: OnLoadService) {
     LogoutComponent,
     NotFoundComponent,
     DisclaimerComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

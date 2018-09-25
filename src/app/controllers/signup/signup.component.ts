@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Title} from "@angular/platform-browser";
 import {AuthenticationService} from "../../core/services/authentication.service";
 import {animate, query, stagger, style, transition, trigger} from "@angular/animations";
 import {AvailableSessions} from "../../core/models/available-sessions";
@@ -25,22 +24,28 @@ import {Router} from "@angular/router";
           })
         ])
     ])
-  ]
+  ],
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private auth: AuthenticationService , private router: Router) {}
+  constructor(private auth: AuthenticationService , private router: Router) {
+  }
 
+  searchText: string;
   sessions$: AvailableSessions;
   len: number;
 
   ngOnInit() {
-    this.auth.getAvailable().subscribe(data => {this.sessions$ = data.sessions; this.len = data.sessions.length;});
+    this.auth.getAvailable().subscribe(data => {
+      this.sessions$ = data.sessions;
+      this.len = data.sessions.length;
+    });
+
   }
 
   signup(session: SessionPayload){
-      console.log(session);
-      this.auth.signup(session).subscribe(data => {this.router.navigateByUrl('/');});
+    console.log(this.searchText);
+      //this.auth.signup(session).subscribe(data => {this.router.navigateByUrl('/');});
   }
 
 }
