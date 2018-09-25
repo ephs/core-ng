@@ -44,8 +44,7 @@ export class SignupComponent implements OnInit {
   }
 
   signup(session: SessionPayload){
-    console.log(this.searchText);
-      //this.auth.signup(session).subscribe(data => {this.router.navigateByUrl('/');});
+      this.auth.signup(session).subscribe(data => {this.router.navigateByUrl('/');});
   }
 
 }
