@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   };
 
   loading = false;
-  subText = "Start session";
+  subText = "Login";
 
   constructor(private auth: AuthenticationService, private router: Router) { }
 
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   resetSub(){ //This function will reset the submit button text. This is fired after the user takes their mouse off the button.
     setTimeout(() =>
       {
-        this.subText = "Start session";
+        this.subText = "Login";
       },
       2000);
   }
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       this.loading = false;
       return;
     }
-    this.subText = "Starting session...";
+    this.subText = "Logging in...";
 
     this.auth.login(this.credentials).subscribe((data) => {
       if(data.error === "true"){
