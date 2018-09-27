@@ -2,7 +2,7 @@
   <h1 class="login-title">Login to Core</h1>
   <input type="text" class="login-input" placeholder="Student ID" autofocus="username" name="username" [(ngModel)]="credentials.username">
   <input type="password" class="login-input" placeholder="Lunch pin" autocomplete="password" name="password" [(ngModel)]="credentials.password">
-  <input type="submit" (mouseleave)="resetSub()" value="{{ subText }}" class="login-button">
+  <input type="submit" (mouseleave)="resetSub()" value="{{ subText }}" class="login-button slide">
   <p class="ins">Use your school provided Student ID and Lunch pin.</p>
   <p class="ins">We DO NOT store your student credentials.</p>
 </form>
