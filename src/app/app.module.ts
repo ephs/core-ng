@@ -22,12 +22,13 @@ import { FilterPipe } from './core/filter.pipe';
 Raven
   .config('https://7880ce881f294331a2449df80a3f94c2@sentry.io/1286744')
   .install();
-*/
+
 export class RavenErrorHandler implements ErrorHandler {
   handleError(err:any) : void {
     //Raven.captureException(err);
   }
 }
+*/
 
 
 export function init_app(onLoad: OnLoadService) {
@@ -55,8 +56,8 @@ export function init_app(onLoad: OnLoadService) {
     BrowserAnimationsModule
   ],
   providers: [OnLoadService,
-    /*{ provide: APP_INITIALIZER, useFactory: init_app, deps: [OnLoadService], multi: true },*/
-    { provide: ErrorHandler, useClass: RavenErrorHandler}
+    { provide: APP_INITIALIZER, useFactory: init_app, deps: [OnLoadService], multi: true },
+    /* { provide: ErrorHandler, useClass: RavenErrorHandler} */
     ],
   bootstrap: [AppComponent]
 })
