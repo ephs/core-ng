@@ -40,6 +40,7 @@ export class SignupComponent implements OnInit {
       this.sessions$ = data.sessions;
       this.len = data.sessions.length;
     });
+
   }
 
   signup(session: SessionPayload){

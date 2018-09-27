@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
     if(!searchText) return sessions$;
     searchText = searchText.toLowerCase();
     return sessions$.filter( it => {
-      return it.name.toLowerCase().includes(searchText) || it.category.toLowerCase().includes(searchText) || it.lastName.toLowerCase().includes(searchText);
+      return it.name.toLowerCase().includes(searchText);
     });
   }
 }
