@@ -13,7 +13,13 @@ Before             |  After
 
 ## Setup
 ---
-You can build an Angular app using the *ng build --prod* command. I'll hopefully have some .zip releases of this soon.
+Have `npm` (node.js) and Angular (`npm install -g @angular/cli`) installed then, in the repository:
+
+`npm install && ng serve`
+
+to get a dev enviornment up and running. 
+
+You can build an Angular app using the `ng build --prod` command. I'll hopefully have some .zip releases of this soon.
 
 ## Credit
 ---
