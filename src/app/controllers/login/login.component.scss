@@ -28,7 +28,10 @@ h1.login-title {
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
+
 .login-input:focus {
   border-color:#6e8095;
   outline: none;
@@ -52,7 +55,6 @@ h1.login-title {
 .login-button:focus {
   background: #bf0127b3;
 }
-
 
 
 
