@@ -9,3 +9,7 @@ handlers:
   upload: dist/corev2/index.html
   secure: always
   expiration: "15m"
+skip_files:
+  - node_modules/
+  - src/
+  - e2e/
