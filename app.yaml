@@ -1,0 +1,11 @@
+runtime: php55
+api_version: 1
+handlers:
+- url: /(.*\.(css|eot|gz|html|ico|js|map|pdist/corev2|svg|ttf|woff|woff2|json))
+  static_files: dist/corev2/\1
+  upload: dist/corev2/(.*\.(css|eot|gz|html|ico|js|map|pdist/corev2|svg|ttf|woff|woff2|json))
+- url: /.*
+  static_files: dist/corev2/index.html
+  upload: dist/corev2/index.html
+  secure: always
+  expiration: "15m"
