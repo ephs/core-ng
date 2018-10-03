@@ -8,8 +8,8 @@ Interacts with [Core API](https://github.com/ephs/coreAPI). Make sure you adjust
 ---
 Before             |  After
 :-------------------------:|:-------------------------:
-![](https://i.imgur.com/aOg2M2w.png)  |  ![](https://i.imgur.com/FQkHJfm.png)
-![](https://i.imgur.com/ReFDVey.png)  |  ![](https://i.imgur.com/uvfFm6l.png)
+![](https://i.imgur.com/8qNf1Ck.png)  |  ![](https://i.imgur.com/A3AucNv.png)
+![](https://i.imgur.com/vM0dxxz.png)  |  ![](https://i.imgur.com/ttamPpO.png)
 
 ## Setup
 ---
