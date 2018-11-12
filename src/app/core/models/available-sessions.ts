@@ -9,4 +9,5 @@ export interface AvailableSessions { //This model is misleading. This is typical
   weekEnd: string;
   startTime: string;
   endTime: string;
+  classroom: string;
 }
