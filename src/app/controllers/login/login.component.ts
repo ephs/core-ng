@@ -3,6 +3,7 @@ import {TokenPayload} from "../../core/models/token-payload";
 import {AuthenticationService} from "../../core/services/authentication.service";
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
+import {animate, query, stagger, style, transition, trigger, state} from "@angular/animations";
 
 @Component({
   selector: 'app-login',
