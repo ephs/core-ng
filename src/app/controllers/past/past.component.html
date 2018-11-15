@@ -1,6 +1,7 @@
 <div id="header">
   <p>Past sessions</p>
 </div>
+<div class="lds-ring" *ngIf="sessions$ == undefined"><div></div><div></div><div></div><div></div></div>
 <div id="sessions">
   <ul [@listStagger]="sessions$">
     <li *ngIf="len == 0">

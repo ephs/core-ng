@@ -14,7 +14,7 @@ import {state, style, trigger, animate, transition, animation, useAnimation} fro
     trigger('submitAnimation', [
       // ...
       state('idle', style({
-        backgroundColor: ' #bf0127';
+        backgroundColor: '#bf0127'
       })),
       state('failed', style({
         backgroundColor: '#ff4579'

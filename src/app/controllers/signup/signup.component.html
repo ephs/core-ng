@@ -2,9 +2,10 @@
   <p>Available sessions</p>
   <div class="search">
     <form>
-      <input title="searchText" name="searchText" type="text" [(ngModel)]="searchText" class="searchText" placeholder="Search sessions...">
+      <input title="searchText" name="searchText" type="text" [(ngModel)]="searchText" class="searchText" placeholder="Search sessions by title...">
     </form>
   </div>
+  <div class="lds-ring" *ngIf="sessions$ == undefined"><div></div><div></div><div></div><div></div></div>
 </div>
 <div id="sessions">
   <ul [@listStagger]="sessions$">
