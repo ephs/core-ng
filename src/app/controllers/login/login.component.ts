@@ -1,10 +1,8 @@
-import {Component, OnInit, HostBinding} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {TokenPayload} from "../../core/models/token-payload";
 import {AuthenticationService} from "../../core/services/authentication.service";
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {state, style, trigger, animate, transition, animation, useAnimation} from '@angular/animations';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +26,6 @@ import {state, style, trigger, animate, transition, animation, useAnimation} fro
     ]),
   ],
 })
-
 export class LoginComponent implements OnInit {
 
   credentials: TokenPayload = {
@@ -38,7 +35,6 @@ export class LoginComponent implements OnInit {
 
   loading = false;
   subText = "Login";
-  submitStatus = "idle";
 
   constructor(private auth: AuthenticationService, private router: Router) { }
 
@@ -49,7 +45,6 @@ export class LoginComponent implements OnInit {
     setTimeout(() =>
       {
         this.subText = "Login";
-        this.submitStatus="idle";
       },
       2000);
   }
@@ -63,7 +58,6 @@ export class LoginComponent implements OnInit {
     if(this.credentials.username === "" || this.credentials.password === ""){ //Locally check if the username or password is blank.
       this.subText = "Invalid login.";
       this.loading = false;
-      this.submitStatus="failed";
       return;
     }
     this.subText = "Logging in...";
@@ -75,7 +69,6 @@ export class LoginComponent implements OnInit {
         }else{
           this.subText = "Server error."; //Some weird error returned by the API.
         }
-        this.submitStatus="failed";
         this.loading = false;
       }else{
         this.router.navigateByUrl('/'); //Good login! Return to dash.
@@ -83,7 +76,6 @@ export class LoginComponent implements OnInit {
       //console.log(this.auth.getUserDetails());
     }, (err) => {
       this.subText = "Unknown error."; //I don't even know how this code would fire. I'll keep an eye on Sentry.
-      this.submitStatus="failed";
       this.loading = false;
       console.log(err);
     });
