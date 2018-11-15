@@ -4,6 +4,8 @@ import {animate, query, stagger, style, transition, trigger} from "@angular/anim
 import {AvailableSessions} from "../../core/models/available-sessions";
 import {SessionPayload} from "../../core/models/session-payload";
 import {Router} from "@angular/router";
+import {SessionsService} from "../../../sessions.service"
+
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +19,7 @@ import {Router} from "@angular/router";
             style({ opacity: 0, transform: 'translateY(-15px)' }),
             stagger('50ms',
               animate('550ms ease-out',
-                style({opacity: 1, transform: 'translateY(0px)'})))
+                style({opacity: .7, transform: 'translateY(0px)'})))
           ], { optional: true }),
           query(':leave', animate('50ms', style({ opacity: 0 })) ,{
             optional: true
@@ -28,7 +30,7 @@ import {Router} from "@angular/router";
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private auth: AuthenticationService , private router: Router) {
+  constructor(private auth: AuthenticationService , private router: Router, private sessions: SessionsService) {
   }
 
   searchText: string;
@@ -36,14 +38,34 @@ export class SignupComponent implements OnInit {
   len: number;
 
   ngOnInit() {
-    this.auth.getAvailable().subscribe(data => {
-      this.sessions$ = data.sessions;
-      this.len = data.sessions.length;
-    });
+
+    this.updateAvailableSessions();
+    this.sessions.getAvailableSessions();
+    
+    setTimeout(() =>
+      {
+        this.updateAvailableSessions();
+      },
+      1000);
   }
 
   signup(session: SessionPayload){
       this.auth.signup(session).subscribe(data => {this.router.navigateByUrl('/');});
+  }
+
+  updateAvailableSessions() {
+
+    if (!(JSON.stringify(this.sessions$) === JSON.stringify(this.sessions.availableSessions$))) { //this is really broken but the only way I got it to compare the arrays
+
+      this.sessions$ = this.sessions.availableSessions$;
+      this.len = this.sessions.availableLength;
+    } else if (this.sessions.availableSessions$ == undefined) { //if availableSessions$ has not been updated, check again periodically
+      setTimeout(() =>
+      {
+        this.updateAvailableSessions();
+      },
+      1000);
+    } 
   }
 
 }

@@ -68,7 +68,6 @@ export class AuthenticationService {
     if (method === 'post' && type === 'login') { //Check and see if we are logging in. If we are' provide the auth payload
       base = this.http.post(this.config.getAPIURL() + type, user);
     } else if (method === 'post' && (type === 'sessions/signup' || type === 'sessions/leave' )) { //Check if we're doing something with sessions that requires the payload. //TODO add API call for leaving a session
-      console.log("Test");
       base = this.http.post(this.config.getAPIURL() + type, session, {headers: {Authorization: `Bearer ${this.getToken()}`}});
     } else {
       base = this.http.get(this.config.getAPIURL() + type, {headers: {Authorization: `Bearer ${this.getToken()}`}}); //Well, its probably some lame call that only needs auth.

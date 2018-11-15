@@ -7,7 +7,24 @@ import {Title} from "@angular/platform-browser";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [
+    trigger('submitAnimation', [
+      // ...
+      state('idle', style({
+        backgroundColor: '#bf0127'
+      })),
+      state('failed', style({
+        backgroundColor: '#ff4579'
+      })),
+      transition('idle => failed', [
+        animate('0.5s')
+      ]),
+      transition('failed => idle', [
+        animate('0.5s')
+      ]),
+    ]),
+  ],
 })
 export class LoginComponent implements OnInit {
 

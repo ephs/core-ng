@@ -11,6 +11,7 @@ import {ActivatedRoute, NavigationEnd, Router, RoutesRecognized} from "@angular/
 export class AppComponent {
   title = 'app';
 
+
   constructor(private router: Router, private titleService: Title) {
     router.events.subscribe(event => { //Check for route change.
       if (event instanceof RoutesRecognized) {
