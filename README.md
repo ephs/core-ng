@@ -19,7 +19,7 @@ Have `npm` (node.js) and Angular (`npm install -g @angular/cli`) installed then,
 
 to get a dev enviornment up and running. 
 
-You can build an Angular app using the `ng build --prod` command. I'll hopefully have some .zip releases of this soon.
+You can build an Angular app using the `ng build --prod` command. There are some .zip's in the releases tab. 
 
 ## Credit
 ---
