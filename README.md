@@ -1,4 +1,4 @@
-# Core-ng: A functioning core rewrite written in Angular 6.
+# Core-ng: A functioning core rewrite written in Angular 7.
 ---
 Complete redesign of CORE (A web app program at my high school). 
 
